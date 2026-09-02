@@ -1,0 +1,15 @@
+version: 1
+workflow:
+  name: safe-human-review-starter
+buyer: operations leader
+problem: routes a structured case without inventing an automated decision
+evidence:
+  class: starter_contract
+  source: synthetic
+limitations:
+  - no model or external system is connected
+human_fallback:
+  required: true
+  owner: workflow operator
+reproduction:
+  command: python3 -m unittest discover -s templates/workflow/tests -v
