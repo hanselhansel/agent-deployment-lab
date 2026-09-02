@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 class RepositoryContractTests(unittest.TestCase):
     def test_required_public_contract_files_exist(self) -> None:
         required_paths = (
+            ".gitignore",
             "README.md",
             "AGENTS.md",
             "LICENSE",
@@ -23,6 +24,13 @@ class RepositoryContractTests(unittest.TestCase):
         missing = [path for path in required_paths if not (ROOT / path).is_file()]
 
         self.assertEqual(missing, [])
+
+    def test_generated_and_local_secret_files_are_ignored(self) -> None:
+        content = (ROOT / ".gitignore").read_text(encoding="utf-8")
+
+        for pattern in ("__pycache__/", "*.py[cod]", ".env", ".env.*"):
+            with self.subTest(pattern=pattern):
+                self.assertIn(pattern, content)
 
     def test_promotion_checklist_names_all_evidence_gates(self) -> None:
         checklist = (ROOT / "PROMOTION_CHECKLIST.md").read_text()
