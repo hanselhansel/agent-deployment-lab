@@ -15,7 +15,7 @@ Every workflow must pass the Defensible, Safe, Runnable, Tested, Useful, and Sha
 Run all public checks from the repository root:
 
 ```sh
-python3 -m unittest tests.test_public_safety tests.test_repository_contract -v
+python3 -m unittest discover -s tests -v
 python3 -m unittest discover -s templates/workflow/tests -v
 python3 scripts/check_public_safety.py .
 ```

@@ -32,6 +32,14 @@ class RepositoryContractTests(unittest.TestCase):
             with self.subTest(pattern=pattern):
                 self.assertIn(pattern, content)
 
+    def test_documented_and_ci_tests_use_discovery(self) -> None:
+        command = "python3 -m unittest discover -s tests -v"
+
+        for relative_path in ("README.md", ".github/workflows/ci.yml"):
+            with self.subTest(relative_path=relative_path):
+                content = (ROOT / relative_path).read_text(encoding="utf-8")
+                self.assertIn(command, content)
+
     def test_promotion_checklist_names_all_evidence_gates(self) -> None:
         checklist = (ROOT / "PROMOTION_CHECKLIST.md").read_text()
 

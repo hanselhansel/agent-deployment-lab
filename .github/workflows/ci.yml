@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Verify public repository contract
-        run: python3 -m unittest tests.test_public_safety tests.test_repository_contract -v
+        run: python3 -m unittest discover -s tests -v
       - name: Verify starter workflow
         run: python3 -m unittest discover -s templates/workflow/tests -v
       - name: Scan public material
