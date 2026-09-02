@@ -9,6 +9,7 @@ Every workflow must pass the Defensible, Safe, Runnable, Tested, Useful, and Sha
 - [Safe human-review starter](templates/workflow/README.md)
 - [Promotion checklist](PROMOTION_CHECKLIST.md)
 - [Security policy](SECURITY.md)
+- [Changelog](CHANGELOG.md)
 
 ## Verify
 
